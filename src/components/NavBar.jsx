@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import mockLogo from '../assets/mocklogo.png'
 
 function NavBar () {
     return (
         <nav className="navBar">
-            <img src= "../../src/assets/mocklogo.png" alt="" id="webLogo"/>
+            <img src= {mockLogo} alt="" id="webLogo"/>
             <h4 id="webName">Echos of Home</h4>
             <Link to={'/'}>
             <h4 className="navLinks">Find THE Voice</h4>
@@ -16,4 +17,4 @@ function NavBar () {
     )
 }
 
-export default NavBargit a
+export default NavBar
