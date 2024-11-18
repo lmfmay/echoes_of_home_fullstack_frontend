@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function NavBar () {
     return (
         <nav className="navBar">
-            <img src="./src/assets/mocklogo.png" alt="" id="webLogo"/>
+            <img src= "../../src/assets/mocklogo.png" alt="" id="webLogo"/>
             <h4 id="webName">Echos of Home</h4>
             <Link to={'/'}>
             <h4 className="navLinks">Find THE Voice</h4>
@@ -16,4 +16,4 @@ function NavBar () {
     )
 }
 
-export default NavBar
+export default NavBargit a
