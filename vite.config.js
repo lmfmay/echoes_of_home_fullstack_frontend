@@ -6,7 +6,7 @@ export default defineConfig({
   //add proxy server
   server: {
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/api': 'https://echoes-of-home-fullstack-backend.onrender.com'
     }
   },
   plugins: [react()],
