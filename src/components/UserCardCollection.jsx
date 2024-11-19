@@ -1,36 +1,53 @@
-import { getAudio } from "../utilities/controllers.mjs";
-import { userProfiles } from '../utilities/data.mjs';
+import { getAudio, getAllTalents } from "../utilities/controllers.mjs";
+//import { userProfiles } from '../utilities/data.mjs';
 import {useState, useEffect} from 'react';
 import UserCard from "./UserCard";
 
 
 function UserCardCollection() {
+    const [talentProfiles, setTalentProfiles] = useState([]);
+    const [talentloading, setTalentLoading] = useState(true);
+    const [talenterror, setTalentError] = useState(null);
+
     const [audioProfiles, setAudioProfiles] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [audioloading, setAudioLoading] = useState(true);
+    const [audioerror, setAudioError] = useState(null);
    
     // Fetch audio profiles once when the component mounts
     useEffect(() => {
+      async function fetchTalentProfiles() {
+        try {
+          let res = await getAllTalents(); //get talent profiles from controller
+          setTalentProfiles(res.data);
+          setTalentLoading(false);
+        } catch (error) {
+          console.error("Error fetching talent profiles:", err);
+          setTalentError("Failed to load talent profiles");
+          setTalentLoading(false);
+        }
+      }
+
       async function fetchAudioProfiles() {
         try {
           let res = await getAudio(); // get audio profiles from controller
           setAudioProfiles(res.data);
-          setLoading(false);
+          setAudioLoading(false);
         } catch (err) {
           console.error("Error fetching audio profiles:", err);
-          setError("Failed to load audio profiles");
-          setLoading(false);
+          setAudioError("Failed to load audio profiles");
+          setAudioLoading(false);
         }
       }
   
+      fetchTalentProfiles();
       fetchAudioProfiles();
     }, []);
   
-    if (loading) {
+    if (audioloading) {
       return <p>Loading audio profiles...</p>;
     }
   
-    if (error) {
+    if (audioerror) {
       return <p>{error}</p>;
     }
   
