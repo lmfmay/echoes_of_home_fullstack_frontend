@@ -1,8 +1,8 @@
 import axios from "axios";
 
 async function getAudio(){
-  //proxy server created to prevent CORS error. see server/server.mjs for AJAX requests.
-  let url = 'https://echoes-of-home-fullstack-backend.onrender.com/api/audioProfiles' 
+  //Get audio profiles from PlayHT using backend as a proxy.
+  let url = 'http://localhost:3000/api/audioProfiles' 
   try {
       let res = await axios.get(url)
       return res;
@@ -11,4 +11,15 @@ async function getAudio(){
   }
 }
 
-export {getAudio}
+//Get talent list from DB
+async function getAllTalents(){
+    try {
+      let url = 'http://localhost:3000/api/talents';
+      let res = await axios.get(url)
+      return res.data;
+    
+  } catch (error) {
+      console.error(error)
+  }
+}
+export {getAudio, getAllTalents}
