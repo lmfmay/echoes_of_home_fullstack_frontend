@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createOneTalent } from "../src/utilities/controllers.mjs";
 
 
 function Signup(){
@@ -12,9 +13,7 @@ function Signup(){
         confirm_password:'',
     })
 
-    function handleClick(e){
-        nav('/') //navigate back to home page
-    }
+
     function handleChange(e) {
         setFormData({
             ...formData,
@@ -25,10 +24,10 @@ function Signup(){
     async function handleSubmit(e){
         try {
             e.preventDefault()
-            if (formData.password !== formData.password2) {
+            if (formData.password !== formData.confirm_password) {
                 console.log('Passwords do not match')
             } else {
-                let res = await createTalent(formData)
+                let res = await createOneTalent(formData)
                 nav('/:id') ////navigate to talent profile page
             }
         } catch (error) {

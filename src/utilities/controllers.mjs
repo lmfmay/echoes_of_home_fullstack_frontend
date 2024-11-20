@@ -22,4 +22,16 @@ async function getAllTalents(){
       console.error(error)
   }
 }
-export {getAudio, getAllTalents}
+
+//create talent in DB
+async function createOneTalent(formData) {
+  try {
+    let url = 'http://localhost:3000/api/talents';
+    let res = await axios.post(url, formData);
+    return res.data;
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export {getAudio, getAllTalents, createOneTalent}
