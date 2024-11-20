@@ -18,7 +18,7 @@ function UserCardCollection() {
       async function fetchTalentProfiles() {
         try {
           let res = await getAllTalents(); //get talent profiles from controller
-          setTalentProfiles(res.data);
+          setTalentProfiles(res);
           setTalentLoading(false);
         } catch (err) {
           console.error("Error fetching talent profiles:", err);
@@ -30,7 +30,7 @@ function UserCardCollection() {
       async function fetchAudioProfiles() {
         try {
           let res = await getAudio(); // get audio profiles from controller
-          setAudioProfiles(res.data);
+          setAudioProfiles(res);
           setAudioLoading(false);
         } catch (err) {
           console.error("Error fetching audio profiles:", err);
@@ -60,7 +60,9 @@ function UserCardCollection() {
     }
   
     // Map user profiles to user cards and pass the relevant audio profile
-    const userCards = userProfiles.map((profile, i) => {
+    const userCards = talentProfiles
+    .filter((profile) => profile.voice_sample) //only include profiles with voice_samples prop
+    .map((profile, i) => {
         // Find the matching audio profile for the user's voice_sample
         const audioProfile = audioProfiles.find((audio) => audio.id === profile.voice_sample);
 

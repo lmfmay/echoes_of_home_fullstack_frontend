@@ -5,7 +5,7 @@ async function getAudio(){
   let url = 'http://localhost:3000/api/audioProfiles' 
   try {
       let res = await axios.get(url)
-      return res;
+      return res.data;
   } catch (error) {
       console.error(error)
   }
