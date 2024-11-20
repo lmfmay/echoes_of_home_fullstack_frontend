@@ -11,8 +11,12 @@ function NavBar () {
             </Link>
             <h4 className="navLinks">|</h4>
             <h4 className="navLinks">Share YOUR Voice</h4> 
+            
             <button>Login</button>
-            <button>Signup</button>
+
+            <Link to={'/signup'}>
+                <button>Signup</button>
+            </Link>
         </nav>
     )
 }
