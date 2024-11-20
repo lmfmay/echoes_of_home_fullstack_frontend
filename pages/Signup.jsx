@@ -25,8 +25,12 @@ function Signup(){
     async function handleSubmit(e){
         try {
             e.preventDefault()
-            let res = await createTalent(formData)
-            nav('/:id') ////navigate to talent profile page
+            if (formData.password !== formData.password2) {
+                console.log('Passwords do not match')
+            } else {
+                let res = await createTalent(formData)
+                nav('/:id') ////navigate to talent profile page
+            }
         } catch (error) {
             console.error(error)
         }
@@ -43,22 +47,45 @@ function Signup(){
 
 export default Signup
 
-/* <section id="loginpg">
-<form class="formContain">
-    <fieldset>
-        <legend id="formlegend"><h2 style="font-weight: 600">Welcome back!</h2></legend>
-        <p>Log in to Echoes of Home</p>
-        <label style="font-weight: 700;">Email<br>
-            <input type="text" name="email" id="talentemail" placeholder="name@company.com" class="formfield">
-        </label><br>
-        <label style="font-weight: 700;">Password <br>
-            <input type="password" name="password" id="talentpassword" placeholder="Enter password" class="formfield">
-        </label><br>
-        <label>
-            <button class="formbutton">Login</button>
-        </label><br>
-        <a href="#" class="forgotpwlink">Forgot password?</a><br>    
-        <a href="../pages/signup.html" class="redirectpglink">Don't have an account yet? Sign Up</a>
-    </fieldset>
+{/* <div className='forms'>
+<h2>SignUp</h2>
+<form autoComplete='off'onSubmit={handleSubmit}>
+  <label htmlFor='name1'>Name: </label>
+  <input
+    onChange={handleChange}
+    type='text'
+    id='name1'
+    name='name'
+    placeholder='First and Last Name'
+  />
+  <label htmlFor='email1'>Email: </label>
+  <input
+    onChange={handleChange}
+    type='email'
+    id='email1'
+    name='email'
+    placeholder='Email'
+  />
+  <label htmlFor='password1'>Password: </label>
+  <input
+    onChange={handleChange}
+    type='password'
+    id='password1'
+    name='password'
+    placeholder='Password'
+    minLength='6'
+  />
+  <input
+    onChange={handleChange}
+    type='password'
+    id='password2'
+    name='password2'
+    placeholder='Confirm Password'
+    minLength='6'
+  />
+  <button type='submit'>Sign Up</button>
 </form>
-</section>
+<p>
+  Already have an account? <button onClick={handleClick}>Sign In</button>
+</p>
+</div> */}
