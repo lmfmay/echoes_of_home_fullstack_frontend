@@ -50,3 +50,26 @@ div .userCard {
 a {
   text-decoration: none;
 }
+
+/* FORM FIELDS STYLE */
+.forms{
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formRow {
+  display: flex;
+  align-items: center; /* Vertically aligns the label and input */
+  margin-bottom: 1rem; /* Adds spacing between rows */
+}
+
+.formLabel{
+  width: 150px; /* Fixed width for labels */
+  text-align: right; /* Right-aligns the text */
+  margin-right: 1rem; /* Adds spacing between label and input */
+}
+
+.formField{
+  flex: 1; /* Allows input to take the remaining space */
+  padding: 0.5rem; /* Adds padding inside input fields */
+}
