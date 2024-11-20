@@ -1,5 +1,5 @@
 import { getAudio, getAllTalents } from "../utilities/controllers.mjs";
-//import { userProfiles } from '../utilities/data.mjs';
+import { userProfiles } from '../utilities/data.mjs';
 import {useState, useEffect} from 'react';
 import UserCard from "./UserCard";
 
@@ -20,7 +20,7 @@ function UserCardCollection() {
           let res = await getAllTalents(); //get talent profiles from controller
           setTalentProfiles(res.data);
           setTalentLoading(false);
-        } catch (error) {
+        } catch (err) {
           console.error("Error fetching talent profiles:", err);
           setTalentError("Failed to load talent profiles");
           setTalentLoading(false);
@@ -43,12 +43,20 @@ function UserCardCollection() {
       fetchAudioProfiles();
     }, []);
   
+    if (talentloading) {
+      return <p>Loading talent profiles...</p>;
+    }
+  
+    if (talenterror) {
+      return <p>{talenterror}</p>;
+    }
+
     if (audioloading) {
       return <p>Loading audio profiles...</p>;
     }
   
     if (audioerror) {
-      return <p>{error}</p>;
+      return <p>{audioerror}</p>;
     }
   
     // Map user profiles to user cards and pass the relevant audio profile
