@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createOneTalent } from "../src/utilities/controllers.mjs";
+import { createOneTalent } from "../utilities/controllers.mjs";
 
 
 function Signup(){

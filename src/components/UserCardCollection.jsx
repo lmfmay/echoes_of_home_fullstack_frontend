@@ -1,5 +1,4 @@
 import { getAudio, getAllTalents } from "../utilities/controllers.mjs";
-import { userProfiles } from '../utilities/data.mjs';
 import {useState, useEffect} from 'react';
 import UserCard from "./UserCard";
 

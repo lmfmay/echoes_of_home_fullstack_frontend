@@ -7,8 +7,8 @@ Echoes of Home is a React Web App built using the MERN stack. It is targeted at 
 ------------ | ------------- | -------------------
 GET | /api/talents | Get list of all talents in DB with voice samples to display on Home Page |
 POST | /api/talents | Post new talent to DB through sign up |
-PUT | /api/talents/:id | Update details of a talent profile |
-DELETE | /api/talents/:id | Delete details from talent profile |
+PUT | /api/talents/:id | Update details of a talent profile (pending)|
+DELETE | /api/talents/:id | Delete details from talent profile (pending) |
 GET | /api/audioProfiles | Get list of voice samples from third party API to seed sample data |
 
 ### Approach Taken

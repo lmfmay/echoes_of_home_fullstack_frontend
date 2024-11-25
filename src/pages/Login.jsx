@@ -1,3 +1,4 @@
+//WORK IN PROGRESS
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getOneTalent } from "../src/utilities/controllers.mjs";

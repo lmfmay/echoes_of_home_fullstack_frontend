@@ -31,7 +31,7 @@ function AudioPlayer({ url }) {
   
     return (
       <div>
-        <button onClick={toggleAudio}>
+        <button onClick={toggleAudio} className='cardButton'>
           {isPlaying ? "Pause" : "Play"}
         </button>
       </div>
