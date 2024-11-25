@@ -44,6 +44,7 @@ GET | /api/audioProfiles | Get list of voice samples from third party API to see
 ## Acknowledgements
 Third Party API:
 - https://docs.play.ht/reference/api-list-ultra-realistic-voices
+
 Documentation:
 - https://expressjs.com/en/guide/routing.html
 - https://www.mongodb.com/docs/
