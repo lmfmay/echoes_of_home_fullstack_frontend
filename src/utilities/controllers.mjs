@@ -34,4 +34,15 @@ async function createOneTalent(formData) {
   }
 }
 
-export {getAudio, getAllTalents, createOneTalent}
+//get one talent from DB
+async function getOneTalent(id) {
+  try {
+    let url = `http://localhost:3000/api/talents/${id}`;
+    let res = await axios.get(url);
+    return res.data;
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export {getAudio, getAllTalents, createOneTalent, getOneTalent}
